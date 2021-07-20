@@ -22,6 +22,13 @@ html{
 
 /* Nav */
 
+div.row {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    
+}
+
 .container-fluid {
     background-color: rgba(3, 3, 3, 0.863);
     
@@ -476,6 +483,7 @@ a.a-btn:focus {
 }
 
 @media (max-width: 600px) {
+
     .paragrafo {
         font-size: 0rem;
     }
@@ -484,9 +492,6 @@ a.a-btn:focus {
         position: relative;
         height: 300px;
     }
-}
-
-@media (max-width: 500px) {
 
     .container-fluid {
         height: 95px;
