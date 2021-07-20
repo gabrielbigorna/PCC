@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Files{% endblock title %}
+
+{% block content %}
+    <div class="offset-1 col-10 list-div">
+        <h1>Files</h1>
+        <div class="container">    
+            <a class="add-link" href="newFile/">
+                <div class="col-2 add-div">
+                    <i class="fas fa-plus"></i>
+                    <span class="paragrafo">Novo File</span>
+                </div>
+            </a>
+
+            <div class="col-9 busca-div">
+                <form method="GET" id="search-form"> 
+                    <input class="form-control" type="text" id="busca" name="busca" placeholder="Buscar File" value="{{ request.GET.busca }}"/>
+                    <i class="fas fa-search" id="search-btn"></i>
+                </form>
+            </div>
+        </div>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %}>
+                        {{message}}
+                        <i class="far fa-times-circle"></i>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <ul class="file-list">
+            {% for file in files %}
+            <li class="file-item">
+                <span>{{ file.title }}</span>
+                <span><a href="delete/{{file.id}}" class="delete-btn"><i class="fas fa-trash"></a></i></span>
+                <span><a href="edit/{{file.id}}"><i class="far fa-edit"></i></a></span>
+                <span><a href="view/{{file.id}}"><i class="fas fa-eye"></i></a></span>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="pagination">
+            <span class="step-links">
+                {% if files.has_previous %}
+                    <a href="?page={{ files.previous_page_number }}"><i class="fas fa-angle-double-left"></i></a>
+                {% endif %}
+
+                {% if files.paginator.num_pages %}
+                    <span class="current">
+                        {{ files.number }} de {{ files.paginator.num_pages }}
+                    </span>
+                {% endif %}
+
+                {% if files.has_next %}
+                    <a href="?page={{ files.next_page_number }}"><i class="fas fa-angle-double-right"></i></a>
+                {% endif %}
+
+
+            </span>
+        </div>
+    </div>
+
+{% endblock content %}
