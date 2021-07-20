@@ -160,7 +160,11 @@ a.navbar-title{
     background-color: rgba(255, 255, 255, 0.05);
 }
 
+.textinput.textInput.form-control.form-control.index:hover,
 .textinput.textInput.form-control.form-control.index:focus {
+    background-color: hsla(0, 0%, 100%, 0.076);
+    border: none;
+    border-bottom: 5px solid var(--vermelho-telha);
     box-shadow: 0 0 0 0.25rem rgb(0 0 0 / 25%);
 }
 
@@ -176,6 +180,16 @@ a.navbar-title{
     color: white;
     background-color: var(--laranja);  
     outline: none; 
+}
+
+.botao:hover, .botao:focus {
+    width: 100%;
+    border: none;
+    border-bottom: 5px solid #a51c07;
+    color: var(--preto);
+    background-color: var(--vermelho-telha);
+    cursor: pointer;
+    font-weight: bolder;
 }
 
 a.account-link {
