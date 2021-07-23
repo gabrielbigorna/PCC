@@ -258,6 +258,7 @@ body.fundo-login {
 a.add-link {
     color: var(--preto);
     text-decoration: none;
+    margin-right: 10px;
 }
 
 .fas.fa-search{
