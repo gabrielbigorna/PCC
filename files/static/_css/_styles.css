@@ -380,6 +380,67 @@ footer p {
     top: 50%
 
 }
+/* Modal */
+
+.box-modal {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.msg-modal {
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    border: 2px solid var(--vermelho-telha);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.dlt-title-modal {
+    margin: 20px;
+    
+}
+
+.input-modal {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dlt-btn-modal-csl,
+.dlt-btn-modal-cfm {
+    
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.dlt-btn-modal-csl {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.dlt-btn-modal-cfm {
+    background-color: #198754;
+    border-color: #198754;
+    
+}
 
 
 /* Messagens */
@@ -604,6 +665,10 @@ a.a-btn:focus {
     .div-btn {
         display: flex;
         justify-content: space-between;
+    }
+
+    .msg-modal {
+        width: 90%;
     }
 
 }
