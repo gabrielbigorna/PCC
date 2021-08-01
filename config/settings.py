@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'boxes',
     'contas',
     'files',
+    'pages',
     'users',
     'crispy_forms',
 ]
