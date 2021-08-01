@@ -22,7 +22,9 @@ def newPages(request, id):
         form_page = PageForm(request.POST)
 
         if form_page.is_valid():
-            form_page.save()
+            page = form_page.save(commit=False)
+            page.user = request.user
+            page.save()
 
         else:
             return redirect('new-page', id=boxes.id)
@@ -34,7 +36,7 @@ def newPages(request, id):
         
         boxes = Box.objects.all().filter(user=request.user, id=id)
         
-        pages = Page.objects.all().filter(ident=id)
+        pages = Page.objects.all().filter(user=request.user, ident=id)
         
         form_page = PageForm()
 
