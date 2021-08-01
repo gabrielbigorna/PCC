@@ -4,7 +4,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import BoxForm
 from .models import Box
-
+from pages.forms import PageForm
+from pages.models import Page
+import pages.urls
 
 
 # Create your views here.
@@ -40,10 +42,10 @@ def newBox(request):
 
         if form.is_valid():
             box = form.save(commit=False)
-            box.done = 'fazendo'
             box.user = request.user
             box.save()
-            return redirect('/boxes')
+
+            return redirect('new-pages', id=box.id)
 
     else:
         form = BoxForm()
