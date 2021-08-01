@@ -1,11 +1,11 @@
-{% extends 'baseFile.html' %}
+{% extends 'baseBox.html' %}
 {% load crispy_forms_tags %}
 
 {% block title %}Editar{% endblock title %}
 
 {% block content %}
     <div class="offset-1 col-10 list-div">
-        <h1>Editando o file '{{file.title}}':</h1>
+        <h1>Editando o box '{{box.title}}':</h1>
         
        <form method="POST" id="form-form">
 
@@ -15,7 +15,7 @@
         </div>
 
         <div class="div-btn">
-            <a href="/files" class="a-btn"><input type="button" class="btn btn-back" value="Voltar" /></a>
+            <a href="/boxes" class="a-btn"><input type="button" class="btn btn-back" value="Voltar" /></a>
             <input type="submit" class="btn btn-success" value="Salvar alteração" />
         </div>
 

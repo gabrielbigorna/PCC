@@ -1,0 +1,17 @@
+{% extends 'baseBox.html' %}
+
+{% block title %} Box {{box.title}}{% endblock title %}
+
+{% block content %}
+    <div class="offset-1 col-10 list-div">
+        <h1>{{box.title}}</h1>
+        
+        <div class="container-d">
+            <p class="description">{{box.description}}</p>
+        </div>
+        
+        <div class="div-btn">
+            <a href="/boxes" class="a-btn"><input type="button" class="btn btn-back back" value="Voltar" /></a>
+        </div>
+    </div>
+{% endblock content %}
