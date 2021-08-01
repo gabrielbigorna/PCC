@@ -22,7 +22,7 @@
     
         <div class="container-box">
             <h1>{{page.ident.title}}</h1>
-            <h2>{% for box in boxes %}{{ box.id }}{% endfor %}</h2>
+            {% comment %} <h2>{% for box in boxes %}{{ box.id }}{% endfor %}</h2> {% endcomment %}
             <div class="info-box">
                 <h5>{{page.ident.description}}</h5> 
             </div>
