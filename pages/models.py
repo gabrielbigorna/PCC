@@ -4,7 +4,7 @@ from boxes.models import Box
 
 # Create your models here.
 class Page(models.Model):
-
+    
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     ident = models.OneToOneField(Box, on_delete=models.CASCADE, primary_key=True)
 

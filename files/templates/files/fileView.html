@@ -11,7 +11,9 @@
         </div>
         
         <div class="div-btn">
-            <a href="/boxes/files" class="a-btn"><input type="button" class="btn btn-back back" value="Voltar" /></a>
+        {% for page in pages %}
+            <a href="/boxes/pages/{{page.ident.id}}" class="a-btn"><input type="button" class="btn btn-back back" value="Voltar" /></a>
+        {% endfor %}
         </div>
     </div>
 {% endblock content %}

@@ -15,7 +15,9 @@
             </div>
 
             <div class="div-btn">
-                <a href="/files" class="a-btn"><input type="button" class="btn btn-back" value="Voltar" /></a>
+                {% for page in pages %}
+                    <a href="/boxes/pages/{{page.ident.id}}" class="a-btn"><input type="button" class="btn btn-back" value="Voltar" /></a>
+                {% endfor %}    
                 <input type="submit" class="btn btn-success" value="Criar File" />
             </div>
 

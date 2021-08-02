@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from pages.models import Page
 
 # Create your models here.
 class File(models.Model):
@@ -16,6 +17,7 @@ class File(models.Model):
         choices=STATUS,
     )
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    page_id = models.ForeignKey(Page, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

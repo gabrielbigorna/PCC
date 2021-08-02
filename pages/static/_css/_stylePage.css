@@ -506,7 +506,7 @@ li.alert.alert-info {
     margin-left: auto;
     margin-right: auto;
     width: auto;
-    border-bottom: 2px solid var(--laranja);
+    border-bottom: 2px solid var(--bs-blue);
 }
 
 .step-links .current {

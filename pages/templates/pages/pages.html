@@ -20,7 +20,7 @@
 
     <div class="offset-1 col-10 list-div">  
     
-        <a href="/boxes" class="a-btn"><input type="button" class="btn btn-back" value="Voltar" /></a>
+        <a href="/boxes" class="a-btn"><input type="button" class="btn btn-back" value="Voltar para o início" /></a>
         <div class="container-box">
             <h1>{{page.ident.title}}</h1>
             {% comment %} <h2>{% for box in boxes %}{{ box.id }}{% endfor %}</h2> {% endcomment %}
@@ -30,7 +30,7 @@
         </div>
 
         <div class="container">    
-            <a class="add-link" href="newFile/">
+            <a class="add-link" href="files/newFile/">
                 <div class="col-2 add-div">
                     <i class="fas fa-plus"></i>
                     <span class="paragrafo">Novo File</span>
@@ -59,9 +59,9 @@
             {% for file in files %}
             <li class="file-item">
                 <span>{{ file.title }}</span>
-                <span><a href="delete/{{file.id}}" class="delete-btn"><i class="fas fa-trash"></a></i></span>
-                <span><a href="edit/{{file.id}}"><i class="far fa-edit"></i></a></span>
-                <span><a href="view/{{file.id}}"><i class="fas fa-eye"></i></a></span>
+                <span><a href="files/delete/{{file.id}}" class="delete-btn"><i class="fas fa-trash"></a></i></span>
+                <span><a href="files/edit/{{file.id}}"><i class="far fa-edit"></i></a></span>
+                <span><a href="files/view/{{file.id}}"><i class="fas fa-eye"></i></a></span>
             </li>
             {% endfor %}
         </ul>

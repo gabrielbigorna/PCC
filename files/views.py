@@ -4,7 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import FileForm
 from .models import File
-
+from pages.forms import PageForm
+from pages.models import Page
 
 
 # Create your views here.
@@ -31,41 +32,55 @@ def files(request):
 @login_required
 def fileView(request, id):
     file = get_object_or_404(File, pk=id)
-    return render(request, 'files/fileView.html', {'file': file})
+
+    pages = Page.objects.all().filter(user=request.user, ident=id)
+
+    return render(request, 'files/fileView.html', {'file': file, 'pages': pages})
 
 @login_required
-def newFile(request):
+def newFile(request, id):
     if request.method == 'POST':
+        page = get_object_or_404(Page, pk=id)
         form = FileForm(request.POST)
+        pages = Page.objects.all().filter(user=request.user, ident=id) 
 
         if form.is_valid():
             file = form.save(commit=False)
             file.done = 'fazendo'
             file.user = request.user
+            file.page_id = page
             file.save()
-            return redirect('/files')
+            return redirect('pages', id=id)
+        
+        else:
+            return redirect('new-file', id=id)
 
     else:
         form = FileForm()
-        return render(request, 'files/newFile.html', {'form': form})
+
+        pages = Page.objects.all().filter(user=request.user, ident=id)
+
+        return render(request, 'files/newFile.html', {'form': form, 'pages': pages})
 
 @login_required
 def editFile(request, id):
     file = get_object_or_404(File, pk=id)
     form = FileForm(instance=file)
 
+    pages = Page.objects.all().filter(user=request.user, ident=id)
+
     if(request.method == 'POST'):
         form = FileForm(request.POST, instance=file)
 
         if(form.is_valid()):
             file.save()
-            return redirect('/files')
+            return redirect('pages', id=file.id)
 
         else:
-            return render(request, 'files/editFile.html', {'form': form, 'file': file})
+            return render(request, 'files/editFile.html', {'form': form, 'file': file, 'pages': pages})
 
     else:
-        return render(request, 'files/editFile.html', {'form': form, 'file': file})
+        return render(request, 'files/editFile.html', {'form': form, 'file': file, 'pages': pages})
 
 @login_required
 def deleteFile(request, id):
@@ -74,4 +89,4 @@ def deleteFile(request, id):
 
     messages.info(request, 'File deletado com sucesso.')
 
-    return redirect('/files')
+    return redirect('pages', id=id)
