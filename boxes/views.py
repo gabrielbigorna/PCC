@@ -45,7 +45,10 @@ def newBox(request):
             box.user = request.user
             box.save()
 
-            return redirect('new-pages', id=box.id)
+            box_id = get_object_or_404(Box, pk=box.id)
+            page = Page.objects.create(user=request.user, ident=box_id)
+            
+            return redirect('/boxes')
 
     else:
         form = BoxForm()
