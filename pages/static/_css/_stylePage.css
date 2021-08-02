@@ -515,7 +515,7 @@ li.alert.alert-info {
 }
 
 .fas.fa-angle-double-left, .fas.fa-angle-double-right {
-    color: var(--laranja);
+    color: var(--bs-blue);
 }
 
 /* novo formulario */

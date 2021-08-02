@@ -1,9 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-from .forms import PageForm
 from .models import Page
-# from files.forms import FileForm
 from files.models import File
 from boxes.models import Box
 
@@ -32,30 +30,3 @@ def pages(request, id):
         files = paginator.get_page(pages)
 
     return render(request, 'pages/pages.html', {'page': page, 'boxes': boxes, 'files': files})
-
-@login_required
-def newPages(request, id):
-       
-    if request.method == 'POST':
-        boxes = Box.objects.all().filter(user=request.user, id=id)
-        form_page = PageForm(request.POST)
-
-        if form_page.is_valid():
-            page = form_page.save(commit=False)
-            page.user = request.user
-            page.save()
-            return redirect('/boxes')
-
-        else:
-            return redirect('new-page', id=boxes.id)
-        
-    else:
-        
-        boxes = Box.objects.all().filter(user=request.user, id=id)
-        
-        pages = Page.objects.all().filter(user=request.user, ident=id)
-        
-        form_page = PageForm()
-
-        return render(request, 'pages/newPages.html', {'form_page': form_page, 'boxes': boxes, 'pages': pages})  
-
