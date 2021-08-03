@@ -30,3 +30,11 @@ def pages(request, id):
         files = paginator.get_page(pages)
 
     return render(request, 'pages/pages.html', {'page': page, 'boxes': boxes, 'files': files})
+
+@login_required
+def backPage(request):
+    return render(request, 'pages/backPage.html')
+
+@login_required
+def urlPage(request):
+    return render(request, 'pages/urlPage.html')
