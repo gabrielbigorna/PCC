@@ -55,8 +55,7 @@ def editFile(request, id):
             file.save()
             # return redirect('pages', id=file.id)
         
-        # return redirect('boxes')
-        return HttpResponse(request, "Here's the text of the Web page.")
+        return redirect('url-page')
     else:
         return render(request, 'files/editFile.html', {'form': form, 'file': file, 'pages': pages})
 
@@ -67,4 +66,4 @@ def deleteFile(request, id):
 
     messages.info(request, 'File deletado com sucesso.')
 
-    return redirect('pages', id=id)
+    return redirect('back-page')
