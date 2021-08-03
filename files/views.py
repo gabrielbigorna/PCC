@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import FileForm
@@ -9,26 +10,6 @@ from pages.models import Page
 
 
 # Create your views here.
-@login_required
-def files(request):
-    search = request.GET.get('busca')
-
-    if search:
-
-        files = File.objects.filter(title__icontains=search, user=request.user)
-
-    else:
-
-        files_list = File.objects.all().order_by('-created_at').filter(user=request.user)
-
-        paginator = Paginator(files_list, 5)
-
-        page = request.GET.get('page')
-
-        files = paginator.get_page(page)
-
-    return render(request, 'files/files.html', {'files': files})
-
 @login_required
 def fileView(request, id):
     file = get_object_or_404(File, pk=id)
@@ -74,8 +55,8 @@ def editFile(request, id):
             file.save()
             # return redirect('pages', id=file.id)
         
-        return redirect('boxes')
-
+        # return redirect('boxes')
+        return HttpResponse(request, "Here's the text of the Web page.")
     else:
         return render(request, 'files/editFile.html', {'form': form, 'file': file, 'pages': pages})
 
