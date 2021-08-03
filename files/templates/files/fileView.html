@@ -10,10 +10,8 @@
             <p class="description">{{file.description}}</p>
         </div>
         
-        <div class="div-btn">
-        {% for page in pages %}
-            <a href="/boxes/pages/{{page.ident.id}}" class="a-btn"><input type="button" class="btn btn-back back" value="Voltar" /></a>
-        {% endfor %}
+        <div class="div-btn">    
+            <a href="javascript:history.back()" class="a-btn"><input type="button" class="btn btn-back back" value="Voltar" /></a>
         </div>
     </div>
 {% endblock content %}
