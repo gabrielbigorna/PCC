@@ -33,9 +33,7 @@ def files(request):
 def fileView(request, id):
     file = get_object_or_404(File, pk=id)
 
-    pages = Page.objects.all().filter(user=request.user, ident=id)
-
-    return render(request, 'files/fileView.html', {'file': file, 'pages': pages})
+    return render(request, 'files/fileView.html', {'file': file})
 
 @login_required
 def newFile(request, id):
