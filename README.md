@@ -10,6 +10,4 @@ Para acessá-lo faça o seguinte:
 - Confira com um 'pip freeze' se o Django foi instalado
 - Suba o servidor com o 'python manege.py runserver'
 - Em seguida acesse a url "accounts/login/"
-- Na tela de login escolha 'Criar conta gratuida' ou entre com o superuser existente:
-	- usuario: bigorna
-	- senha: 12345
+- Na tela de login  vá em "Criar conta gratuita" e depois log.
