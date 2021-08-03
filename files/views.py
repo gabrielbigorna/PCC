@@ -72,10 +72,9 @@ def editFile(request, id):
 
         if(form.is_valid()):
             file.save()
-            return redirect('pages', id=file.id)
-
-        else:
-            return render(request, 'files/editFile.html', {'form': form, 'file': file, 'pages': pages})
+            # return redirect('pages', id=file.id)
+        
+        return redirect('boxes')
 
     else:
         return render(request, 'files/editFile.html', {'form': form, 'file': file, 'pages': pages})
