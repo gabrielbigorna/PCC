@@ -688,7 +688,7 @@ a.a-btn:focus {
 
 }
 
-@media (max-width: 290px) {
+@media (max-width: 320px) {
    
     .container-fluid {
         height: 150px; 
