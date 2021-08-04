@@ -537,9 +537,12 @@ li.alert.alert-info {
 }
 
 .btn.btn-back {
-    color: #fff;
-    background-color: #0d6efd;
+    color: var(--preto);
+    background-color: var(--bs-blue);
     border-color: #0d6efd;
+    border: 2px solid var(--preto);
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 a.a-btn:focus {
@@ -575,9 +578,13 @@ a.a-btn:focus {
 } 
 
 
-@media (max-width: 790px) {
+@media (max-width: 790px) and (orientation: landscape) {
     .paragrafo {
         display: flex;
+    }
+
+    footer{
+        position: relative;
     }
 }
 
@@ -696,7 +703,7 @@ a.a-btn:focus {
 
 }
 
-@media (max-width: 290px) {
+@media (max-width: 320px) {
    
     .container-fluid {
         height: 150px; 

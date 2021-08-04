@@ -563,9 +563,13 @@ a.a-btn:focus {
 } 
 
 
-@media (max-width: 790px) {
+@media (max-width: 790px) and (orientation: landscape) {
     .paragrafo {
         display: flex;
+    }
+
+    footer{
+        position: relative;
     }
 }
 
